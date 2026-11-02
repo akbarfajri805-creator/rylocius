@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rylicious Coffee & More</title>
+    <meta
+      name="description"
+      content="Rylicious Coffee & More - menu kopi, sticky milk, kue balok lumer, dan promo harian."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <img class="brand-badge" src="assets/Logo.jpeg" alt="Logo Rylicious" />
+          <div class="brand-text">
+            <span>Rylicious</span>
+            <small>Coffee & More</small>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#home">Beranda</a>
+          <a href="#menu">Menu</a>
+          <a href="#promo">Promo</a>
+          <a href="#testimoni">Testimoni</a>
+          <a href="#kontak">Kontak</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+
+        <button class="btn-primary" onclick="scrollToMenu()">Pesan Sekarang</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Tempat pulang buat yang butuh manis & hangat</p>
+            <h1>Rylicious</h1>
+            <p class="subtitle">Coffee & More</p>
+
+            <p class="hero-desc">
+              Every Sip, A Delicious Moment. Nikmati minuman favorit, sticky milk,
+              dan kue balok lumer dari Rylicious dengan rasa hangat yang bikin
+              nagih.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="scrollToMenu()">Lihat Menu</button>
+              <a class="btn-secondary" href="#kontak">Hubungi Kami</a>
+            </div>
+
+            <div class="hero-meta">
+              <div>
+                <strong>Jam Buka</strong>
+                <span>16.30 - 22.00</span>
+              </div>
+              <div>
+                <strong>Lokasi</strong>
+                <span>
+                  <a
+                    class="map-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Jl.%20Andi%20Nohong%20No.44%2C%20Rappang%2C%20Kec.%20Panca%20Rijang%2C%20Kabupaten%20Sidenreng%20Rappang%2C%20Sulawesi%20Selatan%2091651%205R58%2BCH%20Rappang"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Jl. Andi Nohong No.44, Rappang
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="cup-card">
+              <img
+                src="https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=900&q=80"
+                alt="Minuman Rylicious"
+              />
+            </div>
+            <div class="badge-float">
+              <span>Best Seller</span>
+              <strong>Kue Balok Lumer</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features container">
+        <div class="feature-card">
+          <span>01</span>
+          <h3>Katalog Menu</h3>
+          <p>Menu lengkap dengan kategori yang mudah dipilih.</p>
+        </div>
+
+        <div class="feature-card">
+          <span>02</span>
+          <h3>Pesan Online</h3>
+          <p>Order cepat via keranjang dan checkout WhatsApp.</p>
+        </div>
+
+        <div class="feature-card">
+          <span>03</span>
+          <h3>Promo Spesial</h3>
+          <p>Promo favorit dan menu best seller setiap hari.</p>
+        </div>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="container">
+          <div class="title-wrap">
+            <p class="section-tag">Menu Pilihan</p>
+            <h2>Rylicious Menu</h2>
+          </div>
+
+          <div class="filter-menu">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="Coffee Classic">Coffee Classic</button>
+            <button class="filter-btn" data-filter="New Americano">New Americano</button>
+            <button class="filter-btn" data-filter="Signature Coffee">Signature Coffee</button>
+            <button class="filter-btn" data-filter="Non Coffee">Non Coffee</button>
+            <button class="filter-btn" data-filter="Sticky Milk">Sticky Milk</button>
+            <button class="filter-btn" data-filter="Kue Balok Lumer">Kue Balok Lumer</button>
+          </div>
+
+          <div id="menu-list" class="menu-grid"></div>
+        </div>
+      </section>
+
+      <section class="cart-section">
+        <div class="container cart-layout">
+          <div class="cart-panel">
+            <div class="title-wrap left">
+              <p class="section-tag">Keranjang</p>
+              <h2>Pesanan Anda</h2>
+            </div>
+
+            <div id="cart-items" class="cart-items">
+              <p class="empty-cart">Belum ada produk yang dipilih.</p>
+            </div>
+          </div>
+
+          <aside class="summary-panel">
+            <h3>Ringkasan Pesanan</h3>
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="subtotal">Rp 0</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Biaya Layanan</span>
+              <strong id="service-fee">Rp 0</strong>
+            </div>
+
+            <div class="summary-row total">
+              <span>Total</span>
+              <strong id="total-price">Rp 0</strong>
+            </div>
+
+            <button id="checkout-btn" class="btn-primary full-width">
+              Checkout via WhatsApp
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="promo-section" id="promo">
+        <div class="container">
+          <div class="title-wrap">
+            <p class="section-tag">Promo Spesial</p>
+            <h2>Kesempatan Menarik Hari Ini</h2>
+          </div>
+
+          <div class="promo-grid">
+            <div class="promo-card">
+              <span class="promo-tag">Diskon 10%</span>
+              <h3>Paket Ngopi Santai</h3>
+              <p>1 kopi pilihan + 1 kue balok lumer dengan harga spesial.</p>
+              <strong>Mulai Rp 30.000</strong>
+            </div>
+
+            <div class="promo-card">
+              <span class="promo-tag">Best Seller</span>
+              <h3>Sticky Milk Combo</h3>
+              <p>Pilih sticky milk favorit dan dapat bonus topping ekstra.</p>
+              <strong>Mulai Rp 25.000</strong>
+            </div>
+
+            <div class="promo-card">
+              <span class="promo-tag">Order 3+</span>
+              <h3>Bonus Khusus Hari Jumat</h3>
+              <p>Pesan 3 produk atau lebih, dapat benefit khusus dari kami.</p>
+              <strong>Harga Spesial</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonial-section" id="testimoni">
+        <div class="container">
+          <div class="title-wrap">
+            <p class="section-tag">Testimoni</p>
+            <h2>Apa Kata Pelanggan</h2>
+          </div>
+
+          <div class="testimonial-grid">
+            <div class="testimonial">
+              <p>
+                “Kue balok lumer-nya enak banget dan teksturnya lembut. Cocok
+                buat santai sambil nongkrong.”
+              </p>
+              <div class="person">
+                <strong>Alwi / Amure</strong>
+                <span>Pelanggan</span>
+              </div>
+            </div>
+
+            <div class="testimonial">
+              <p>
+                “Kopinya creamy mantap rasanya, cocok banget buat teman santai
+                sore hari.”
+              </p>
+              <div class="person">
+                <strong>Mas'e / Ahmad Fika</strong>
+                <span>Pelanggan</span>
+              </div>
+            </div>
+
+            <div class="testimonial">
+              <p>
+                “Proses pemesanan mudah dan cepat. Kopi serta menu lainnya
+                kualitasnya bagus untuk kedai kecil.”
+              </p>
+              <div class="person">
+                <strong>Dirga / Ballung</strong>
+                <span>Pelanggan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="kontak">
+        <div class="container contact-box">
+          <div class="contact-copy">
+            <p class="section-tag">Kontak & Lokasi</p>
+            <h2>Datang Langsung atau Order Online</h2>
+            <p>
+              Rylicious Coffee & More siap melayani pesanan Anda setiap hari.
+              Jangan ragu datang langsung maupun order lewat WhatsApp.
+            </p>
+
+            <ul class="contact-list">
+              <li>
+                📍
+                <a
+                  class="map-link"
+                  href="https://www.google.com/maps/search/?api=1&query=Jl.%20Andi%20Nohong%20No.44%2C%20Rappang%2C%20Kec.%20Panca%20Rijang%2C%20Kabupaten%20Sidenreng%20Rappang%2C%20Sulawesi%20Selatan%2091651%205R58%2BCH%20Rappang"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Jl. Andi Nohong No.44, Rappang
+                </a>
+              </li>
+              <li>🕒 16.30 - 22.00</li>
+              <li>📞 0878-1585-4276</li>
+            </ul>
+          </div>
+
+          <div class="contact-card">
+            <h3>Pesan sekarang</h3>
+            <p>Jangan tunggu lama, nikmati menu favoritmu hari ini.</p>
+            <a
+              href="https://wa.me/6287815854276?text=Halo%20Rylicious%2C%20saya%20ingin%20memesan%20menu."
+              class="btn-primary full-width"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chat WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h3>Rylicious</h3>
+          <p>Manis, hangat, dan nikmat untuk setiap momen.</p>
+        </div>
+        <p>© 2026 Rylicious Coffee & More</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Rylicious</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background: #f8f1e7;
+      }
+
+      .admin-page {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 22px;
+      }
+
+      .admin-header h1 {
+        color: #512b17;
+        font-size: 2rem;
+      }
+
+      .admin-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .admin-panel {
+        background: white;
+        border: 1px solid rgba(81, 43, 23, 0.08);
+        border-radius: 28px;
+        padding: 22px;
+        box-shadow: 0 14px 34px rgba(81, 43, 23, 0.05);
+      }
+
+      .admin-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-group label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #512b17;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 0.8rem 0.85rem;
+        border: 1px solid rgba(81, 43, 23, 0.12);
+        border-radius: 12px;
+        font: inherit;
+        background: #fff;
+      }
+
+      .admin-btn-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+
+      .admin-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+
+      .admin-card {
+        background: #fffaf7;
+        border: 1px solid rgba(81, 43, 23, 0.08);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 22px rgba(81, 43, 23, 0.04);
+      }
+
+      .admin-card img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+      }
+
+      .image-update-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .image-update-form input {
+        width: 100%;
+        padding: 0.7rem 0.75rem;
+        border: 1px solid rgba(81, 43, 23, 0.12);
+        border-radius: 10px;
+        font: inherit;
+        background: #fff;
+      }
+
+      .admin-card-body {
+        padding: 16px;
+      }
+
+      .admin-card h3 {
+        margin-bottom: 10px;
+      }
+
+      .admin-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 8px 0 14px;
+        font-size: 0.9rem;
+        color: #6a4f42;
+      }
+
+      .admin-card-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .switch {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        background: rgba(81, 43, 23, 0.04);
+        border-radius: 12px;
+        padding: 0.8rem 0.85rem;
+        font-weight: 600;
+      }
+
+      .switch input {
+        appearance: none;
+        width: 52px;
+        height: 30px;
+        background: #d9d0c8;
+        border-radius: 999px;
+        position: relative;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .switch input::before {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        left: 4px;
+        top: 4px;
+        border-radius: 50%;
+        background: white;
+        transition: 0.2s ease;
+      }
+
+      .switch input:checked {
+        background: linear-gradient(135deg, #512b17, #7c4326);
+      }
+
+      .switch input:checked::before {
+        transform: translateX(22px);
+      }
+
+      .delete-btn {
+        background: #f6e2e2;
+        color: #8a2b2b;
+        border: 1px solid rgba(138, 43, 43, 0.08);
+      }
+
+      .delete-btn:hover {
+        background: #f3d2d2;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .delete-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #512b17, #7c4326);
+        color: white;
+      }
+
+      .btn-secondary {
+        background: rgba(81, 43, 23, 0.06);
+        color: #512b17;
+        border: 1px solid rgba(81, 43, 23, 0.08);
+      }
+
+      @media (max-width: 720px) {
+        .admin-header {
+          align-items: flex-start;
+        }
+
+        .admin-btn-row {
+          width: 100%;
+        }
+
+        .admin-btn-row > * {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-page">
+      <div class="admin-header">
+        <h1>Admin Panel Rylicious</h1>
+
+        <div class="admin-actions">
+          <a href="index.html" class="btn-secondary">Kembali ke Menu</a>
+        </div>
+      </div>
+
+      <div class="admin-panel">
+        <form id="add-product-form" class="admin-form">
+          <div class="form-group">
+            <label for="product-name">Nama Produk</label>
+            <input id="product-name" type="text" placeholder="Contoh: Sticky Milk Choco" required />
+          </div>
+
+          <div class="form-group">
+            <label for="product-category">Kategori</label>
+            <select id="product-category">
+              <option value="Coffee Classic">Coffee Classic</option>
+              <option value="New Americano">New Americano</option>
+              <option value="Signature Coffee">Signature Coffee</option>
+              <option value="Non Coffee">Non Coffee</option>
+              <option value="Sticky Milk">Sticky Milk</option>
+              <option value="Kue Balok Lumer">Kue Balok Lumer</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="product-price">Harga</label>
+            <input id="product-price" type="number" min="1000" step="1000" placeholder="15000" required />
+          </div>
+
+          <div class="form-group">
+            <label for="product-image">URL atau Path Gambar</label>
+            <input id="product-image" type="text" placeholder="assets/nama-file.jpg atau https://..." required />
+          </div>
+
+          <div class="form-group">
+            <label for="product-description">Deskripsi</label>
+            <input id="product-description" type="text" placeholder="Deskripsi menu..." required />
+          </div>
+
+          <div class="form-group">
+            <label for="product-stock">Status Stok</label>
+            <select id="product-stock">
+              <option value="true">Tersedia</option>
+              <option value="false">Habis</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="admin-btn-row">
+          <button type="submit" form="add-product-form" class="btn-primary">Tambah Produk</button>
+          <button type="button" id="reset-stock" class="btn-secondary">Reset Stok Semua</button>
+        </div>
+      </div>
+
+      <div class="admin-panel" style="margin-top: 24px;">
+        <h2>Daftar Produk</h2>
+        <div id="admin-list" class="admin-list"></div>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
